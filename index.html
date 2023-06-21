@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Not Hesaplama</title>
+    <title>Grade Calculator</title>
+    <!-- Font awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,12 +13,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Toastify -->
     <link rel="stylesheet" href="/style/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
   </head>
   <body>
     <div class="container">
-      <h1>Öğrenci Not Hesaplama</h1>
-      <form id="student-from">
+      <h1>Grade Calculator</h1>
+      <form id="student-form">
         <div class="form-group">
           <input type="text" id="name" placeholder="name" required />
         </div>
@@ -38,7 +49,7 @@
         <div class="form-group">
           <input type="number" id="final" placeholder="final" required />
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" class="add">Add</button>
       </form>
       <div class="student-state">
         <h3>Öğrenci Listesi</h3>
@@ -53,20 +64,8 @@
           <span>DD</span>
         </div>
       </div>
-      <div id="student-list">
-        <!-- <p class="empty">There is no any student in the list.</p> -->
-        <div class="student-item">
-          <div class="student-item-info">
-            <h3>Isim Soyisim - Ogr No</h3>
-            <span>Vize:puan Final:puan</span>
-            <p>Ortalama: Ortalama</p>
-          </div>
-          <div class="student-item-process">
-            <i class="fa-solid fa-pen-to-square edit-button"></i>
-            <i class="fa-solid fa-trash delete-button"></i>
-          </div>
-        </div>
-      </div>
+      <div id="student-list"></div>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>
