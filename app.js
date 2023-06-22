@@ -66,7 +66,7 @@ function viewStudentList() {
       } }</p>
        </div>
        <div class="student-item-process">
-        <i class="fa-solid fa-pen-to-square edit-button"></i>
+        <i class="fa-solid fa-pen-to-square edit-button" onclick='editStudent(${index})'></i>
         <i class="fa-solid fa-trash delete-button"onclick='deleteStudent(${index})'></i>
        </div>
      `;
@@ -103,8 +103,30 @@ function deleteStudent(i) {
     }
     return index !== i;
   });
+
   saveToLocalStorage();
   viewStudentList();
+}
+
+function editStudent(i) {
+  /* 1.way
+  const editStudent = students.filter((st,index) => index === i)*/
+
+  /* 2.way
+  const editStudent = students[i]*/
+
+  // 3.way
+  const editStudent = students.find((st, index) => index === i);
+
+  //Filling in form fields with student information
+  document.querySelector("#name").value = editStudent.name;
+  document.querySelector("#surname").value = editStudent.surname;
+  document.querySelector("#number").value = editStudent.number;
+  document.querySelector("#midterm").value = editStudent.midterm;
+  document.querySelector("#final").value = editStudent.final;
+
+  //deleting the student
+  deleteStudent(i);
 }
 
 //storing students info in the localstorage
